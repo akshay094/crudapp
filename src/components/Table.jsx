@@ -4,8 +4,6 @@ import { Context } from "../App";
 const Table = () => {
   let { setUser, data, setData } = useContext(Context);
 
-  // useEffect(() => {}, [data]);
-
   const handleClick = (event) => {
     if (event.target.innerText === "Delete") {
       setData((prev) => prev.filter((val, idx) => val.id != event.target.name));
@@ -35,11 +33,11 @@ const Table = () => {
       <tbody>
         {data.map((val, idx) => {
           return (
-            <tr key={idx}>
-              <td key={idx}>{val.id}</td>
-              <td key={idx}>{val.username}</td>
-              <td key={idx}>{val.email}</td>
-              <td key={idx}>{val.password}</td>
+            <tr>
+              <td key={val.id.toString()}>{val.id}</td>
+              <td key={val.id.toString()}>{val.username}</td>
+              <td key={val.id.toString()}>{val.email}</td>
+              <td key={val.id.toString()}>{val.password}</td>
               <td>
                 <button name={val.id}>Edit</button>
               </td>
